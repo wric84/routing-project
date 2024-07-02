@@ -5,16 +5,20 @@ import HomePage from "./pages/Home";
 import ProductsPage from "./pages/Products";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
+import ProductDetail from "./pages/ProductDetail";
 
 //path is the part after the domain, second part is what component
+
+//by making the path relative and not absolute, the path is added after the current domain name and not after the current active path
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage/>,
     children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/products", element: <ProductsPage /> },
+      { path: "", element: <HomePage /> },
+      { path: "products", element: <ProductsPage /> },,
+      {path: 'products/:productId', element: <ProductDetail/>}
     ],
   },
 ]);
